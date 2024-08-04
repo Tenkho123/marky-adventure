@@ -1,0 +1,28 @@
+<Down_left_way>:
+    #Since this is a square so it's doesn't matter width or height
+    root_width: (self.GAP_SIZE_RATIO-.9) * self.width
+    default_width: (self.GAP_SIZE_RATIO-.9) * self.width / self.GAP_SIZE_RATIO
+    
+    canvas.before:           
+        Rectangle:
+            size: self.width,self.default_width/self.BORDER_SIZE_RATIO
+            pos: self.pos[0], self.pos[1] + self.height - self.default_width/self.BORDER_SIZE_RATIO
+            texture: self.horizontal_border_texture
+            
+        Rectangle:
+            size: self.default_width/self.BORDER_SIZE_RATIO,self.height
+            pos: self.pos[0] + self.width - self.default_width/self.BORDER_SIZE_RATIO, self.pos[1]
+            texture: self.vertical_border_texture
+            
+        Rectangle:
+            size: self.width - self.root_width/self.GAP_SIZE_RATIO + self.default_width/self.BORDER_SIZE_RATIO, self.default_width/self.BORDER_SIZE_RATIO
+            pos: self.pos[0], self.pos[1] + self.height - self.root_width/self.GAP_SIZE_RATIO
+            texture: self.horizontal_border_texture
+            
+        Rectangle:
+            size: self.default_width/self.BORDER_SIZE_RATIO, self.height - self.root_width/self.GAP_SIZE_RATIO + self.default_width/self.BORDER_SIZE_RATIO
+            pos: self.pos[0] + self.width - self.root_width/self.GAP_SIZE_RATIO, self.pos[1]
+            texture: self.vertical_border_texture
+
+            
+        

@@ -1,0 +1,20 @@
+v1.0.4:
+    fixed mobile map generating and bug game
+
+v1.0.3:
+    patched bug(failed)
+
+v1.0.2:
+    fixed map rendering issues on mobile
+
+v1.0.1:
+    fixed glitch for down left turn
+    reposition score labels
+    adding goal point
+    optimize path rendering
+    added faster and slower buttons
+    
+v1.0.0:
+    testing gui
+    working function
+    working start button

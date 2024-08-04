@@ -1,0 +1,14 @@
+<Horizontal_way>:
+    canvas.before:
+
+        Rectangle:
+            size: self.width,self.height/self.BORDER_SIZE_RATIO
+            pos: self.pos
+            texture: self.border_texture
+        
+        Rectangle:
+            size: self.width,self.height/self.BORDER_SIZE_RATIO
+            pos: self.pos[0],self.pos[1] + self.height - self.height/self.BORDER_SIZE_RATIO
+            texture: self.border_texture
+            
+        

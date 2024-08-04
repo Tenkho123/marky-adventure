@@ -1,0 +1,70 @@
+#:include way/vertical_way.kv
+#:include way/horizontal_way.kv
+#:include way/down_left_way.kv
+#:include way/down_right_way.kv
+#:include way/up_left_way.kv
+#:include way/up_right_way.kv
+
+FloatLayout:
+    id: root_layout
+    MovementTracker:
+    Background:
+        id: background
+        canvas.before:
+            Color:
+                rgba: 1,1,1,.5
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                texture: self.testmap_texture
+     
+    Cat:
+        id: cat
+        source: "assets/test_model.png"
+        size_hint: None, None
+        size: root.width/7.5, root.width/7.5
+        pos: (root.width/2)-self.width/2, (root.height/2)-self.height/2
+    
+    Button:
+        id: start_button
+        size_hint: None,None
+        size: root.size
+        pos: root.width/2-self.width/2,root.height/2-self.height/2
+        text: "Start game"
+        background_normal: "assets/transparent.png"
+        background_down: "assets/transparent.png"
+        on_press:
+            self.disabled = True
+            self.opacity = 0
+            root.ids.pause_button.disabled = False
+            root.ids.pause_button.opacity = 1
+            app.start_game()
+            
+    Button:
+        id: pause_button
+        size_hint: None,None
+        size: dp(25), dp(35)
+        pos: root.width - dp(40), root.height - dp(50)
+        background_normal: "assets/pause_icon.png"
+        disabled: True
+        opacity: 0
+        on_release:
+            app.pause_screen()
+            
+    Button:
+        id: speed_up
+        size_hint: None,None
+        text: "Faster"
+        size: dp(50),dp(50)
+        pos: root.width - dp(80), dp(30)
+        on_release:
+            app.speed_up()
+        
+    Button:
+        id: slow_down
+        size_hint: None,None
+        text: "Slower"
+        size: dp(50),dp(50)
+        pos: dp(30), dp(30)
+        on_release:
+            app.slow_down()
